@@ -2,7 +2,7 @@
 Konversi anotasi XML dataset (session0_right) ke format label repo 3d_bbox_highway.
 Rujukan format: CarlaDataset.__getitem__ di centernet-3d-bbox.ipynb (CSV "x,y,w,h,l",
 satu file per gambar, nama label = nama gambar tanpa ekstensi 3 huruf; gambar di-resize
-ke 1280x720 saat dimuat, jadi x,y diskalakan 2/3).
+ke 1280x720 saat dimuat, jadi x,y diskalakan 2/3). 
 Titik (x,y) = perpotongan diagonal 4 titik alas vertex2d (pusat alas setelah proyeksi).
 y diukur dari ATAS gambar (terbukti dari label Carla dan get_position_ground).
 w,h,l = veh_size ke-2, ke-3, ke-1 (terbukti dari selisih vertex3d).

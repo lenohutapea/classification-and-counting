@@ -2,7 +2,7 @@
 
 Konversi dan validasi label 3D bounding box dataset **session0_right** untuk melatih CenterNet pada [antoinekeller/3d_bbox_highway](https://github.com/antoinekeller/3d_bbox_highway), sebagai dasar klasifikasi dan penghitungan kendaraan.
 
-## Gambaran
+## Gambaran 
 
 Repo ini berisi skrip kerja yang:
 
