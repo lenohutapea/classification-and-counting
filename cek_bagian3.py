@@ -2,7 +2,20 @@ import pickle
 from cek_bagian1 import *
 
 files, objs_by_frame = pickle.load(open(os.path.join(BASE, "objs.pkl"), "rb"))
-edges = [(0,1),(1,2),(2,3),(3,0),(4,5),(5,6),(6,7),(7,4),(0,4),(1,5),(2,6),(3,7)]
+edges = [
+    (0, 1),
+    (1, 2),
+    (2, 3),
+    (3, 0),
+    (4, 5),
+    (5, 6),
+    (6, 7),
+    (7, 4),
+    (0, 4),
+    (1, 5),
+    (2, 6),
+    (3, 7),
+]
 n = len(files)
 out = os.path.join(BASE, "check")
 os.makedirs(out, exist_ok=True)
@@ -18,7 +31,7 @@ for k in [1, n // 6, 2 * n // 6, 3 * n // 6, 4 * n // 6, 5 * n // 6]:
         print("gagal baca:", path)
         continue
     img = cv2.resize(img, (1280, 720))
-    for (x, y, W, H, L, p2) in objs_by_frame[k]:
+    for x, y, W, H, L, p2 in objs_by_frame[k]:
         pts = [(int(a * S), int(b * S)) for a, b in p2]
         for a, b in edges:
             cv2.line(img, pts[a], pts[b], (0, 255, 0), 1)

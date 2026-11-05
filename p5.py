@@ -9,8 +9,10 @@ img_dir = os.path.join(BASE, "converted", "images")
 out = os.path.join(BASE, "check_label")
 os.makedirs(out, exist_ok=True)
 
+
 def baca(k):
     return pd.read_csv(os.path.join(lab_dir, "image_%04d.txt" % k)).to_numpy()
+
 
 selisih, beda_jumlah = 0.0, []
 for k in range(1, len(files) + 1):
@@ -32,7 +34,7 @@ for k in ks:
         print("gagal baca gambar", k)
         continue
     img = cv2.resize(img, (1280, 720))
-    for (x, y, w, h, l) in baca(k):
+    for x, y, w, h, l in baca(k):
         P = get_position_ground(x, y, K, T, img.shape[0])
         img = Box(P[0], P[2], w, h, l).project(img, T, K)
         cv2.circle(img, (int(x), int(y)), 3, (0, 255, 255), -1)
